@@ -1,10 +1,43 @@
-
+var arry = [];
+var check;
 var submit = $('.submit');
-var prevButt = $('.prev');
-var nextButt = $('.next');
+var timeSubmit = $('.timeButt');
+submit.on('click', setStorage);
+
+function setStorage(){
+  var input1 = $('.inp1').val();
+  var input2 = $('.inp2').val();
+  var input3 = $('.inp3').val();
+  var input4 = $('.inp4').val();
+  var input5 = $('.inp5').val();
+
+  localStorage.setItem("input1", input1);
+  localStorage.setItem("input2", input2);
+  localStorage.setItem("input3", input3);
+  localStorage.setItem("input4", input4);
+  localStorage.setItem("input5", input5);
+
+
+}
+submit.on('click', setTime);
+
+function setTime() {
+  var time1 = $('.time1').val();
+  var time2 = $('.time2').val();
+  var time3 = $('.time3').val();
+  var time4 = $('.time4').val();
+  var time5 = $('.time5').val();
+
+  localStorage.setItem("time1", time1);
+  localStorage.setItem("time2", time2);
+  localStorage.setItem("time3", time3);
+  localStorage.setItem("time4", time4);
+  localStorage.setItem("time5", time5);
+
+}
+
 var cardContainer = $('.cardContainer');
 var steps = $('.steps');
-var input = $('.inp1');
 var timeInput = $('.timeInput');
 
 submit.on("click", showCalendar);
@@ -14,71 +47,159 @@ function showCalendar() {
   timeInput.css("visibility","hidden")
 
   // event.target.parentNode.remove(input);
-  cardContainer.append(`<section class = "calendar">
-  <div class="month">
-  <ul>
-    <button class="prev">&#10094;</button>
-    <button class="next">&#10095;</button>
-    <li>June<br><span style="font-size:18px">2019</span></li>
-  </ul>
-</div>
+  cardContainer.append(`<article class = "appended">
+  <section class="day"><p> Today:</p> <br>
+  ${localStorage.getItem('input1')}: ${localStorage.getItem('time1')/5} minutes <br>
+  ${localStorage.getItem('input2')}: ${localStorage.getItem('time2')/5} minutes <br>
+  ${localStorage.getItem('input3')}: ${localStorage.getItem('time3')/5} minutes <br>
+  ${localStorage.getItem('input4')}: ${localStorage.getItem('time4')/5} minutes <br>
+  ${localStorage.getItem('input5')}: ${localStorage.getItem('time5')/5} minutes <br></section>
+  <section class="day"><p> Tomorrow: </p> <br>
+  ${localStorage.getItem('input1')}: ${localStorage.getItem('time1')/5} minutes <br>
+  ${localStorage.getItem('input2')}: ${localStorage.getItem('time2')/5} minutes <br>
+  ${localStorage.getItem('input3')}: ${localStorage.getItem('time3')/5} minutes <br>
+  ${localStorage.getItem('input4')}: ${localStorage.getItem('time4')/5} minutes <br>
+  ${localStorage.getItem('input5')}: ${localStorage.getItem('time5')/5} minutes <br></section>
+  <section class="day"><p> The next day: </p> <br>
+  ${localStorage.getItem('input1')}: ${localStorage.getItem('time1')/5} minutes <br>
+  ${localStorage.getItem('input2')}: ${localStorage.getItem('time2')/5} minutes <br>
+  ${localStorage.getItem('input3')}: ${localStorage.getItem('time3')/5} minutes <br>
+  ${localStorage.getItem('input4')}: ${localStorage.getItem('time4')/5} minutes <br>
+  ${localStorage.getItem('input5')}: ${localStorage.getItem('time5')/5} minutes <br></section>
+  <section class="day"><p> The next next day: </p> <br>
+  ${localStorage.getItem('input1')}: ${localStorage.getItem('time1')/5} minutes <br>
+  ${localStorage.getItem('input2')}: ${localStorage.getItem('time2')/5} minutes <br>
+  ${localStorage.getItem('input3')}: ${localStorage.getItem('time3')/5} minutes <br>
+  ${localStorage.getItem('input4')}: ${localStorage.getItem('time4')/5} minutes <br>
+  ${localStorage.getItem('input5')}: ${localStorage.getItem('time5')/5} minutes <br></section>
+  <section class="day"><p> The next next next day </p> <br>
+  ${localStorage.getItem('input1')}: ${localStorage.getItem('time1')/5} minutes <br>
+  ${localStorage.getItem('input2')}: ${localStorage.getItem('time2')/5} minutes <br>
+  ${localStorage.getItem('input3')}: ${localStorage.getItem('time3')/5} minutes <br>
+  ${localStorage.getItem('input4')}: ${localStorage.getItem('time4')/5} minutes <br>
+  ${localStorage.getItem('input5')}: ${localStorage.getItem('time5')/5} minutes <br></section>
 
-    <ul class="weekdays">
-      <li>Mo</li>
-      <li>Tu</li>
-      <li>We</li>
-      <li>Th</li>
-      <li>Fr</li>
-      <li>Sa</li>
-      <li>Su</li>
-    </ul>
-
-    <ul class="days">
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-      <li>4</li>
-      <li>5</li>
-      <li>6</li>
-      <li>7</li>
-      <li>8</li>
-      <li>9</li>
-      <li><span class="active">10</span></li>
-      <li>11</li>
-      <li>12</li>
-      <li>13</li>
-      <li>14</li>
-      <li>15</li>
-      <li>16</li>
-      <li>17</li>
-      <li>18</li>
-      <li>19</li>
-      <li>20</li>
-      <li>21</li>
-      <li>22</li>
-      <li>23</li>
-      <li>24</li>
-      <li>25</li>
-      <li>26</li>
-      <li>27</li>
-      <li>28</li>
-      <li>29</li>
-      <li>30</li>
-    </ul>
-
-  </section>`)
-
+  </article>`)
 }
-// function removeItem(input) {
-//   event.target.parentNode.remove(input);
-// }
-//
-// function inputSteps {
-//
-// }
+timeSubmit.on("click", timeConvert);
 
-// prevButt.on("click", nextPage)
-//
-// function nextPage() {
-//
-// }
+function timeConvert(timeHours) {
+  var timeHours = $('.timeConvert').val();
+  console.log(timeHours)
+  var timeMinutes = timeHours*60;
+  var p = $('.minutes');
+  // console.log(timeMinutes);
+  p.append(`<p class="toRemove">${timeMinutes} minutes<button type = "radio" id="checkbox"> done. </button></p> `);
+  // time1.append(timeMinutes);
+  // time2.append(timeMinutes);
+  // time3.append(timeMinutes);
+  // time4.append(timeMinutes);
+  // time5.append(timeMinutes);
+  check = $("#checkbox");
+  check.on("click",removeItem);
+  console.log(check)
+  }
+
+  // check.on("click",removeItem);
+  function removeItem() {
+    console.log("HEYYYY")
+    event.target.parentNode.remove();
+  }
+  // var check = $(".checkbox");
+  // // var toRemove = $(".toRemove");
+  // check.on("click",removeItem());
+  //
+  //
+  // function removeItem() {
+  //   event.target.parentNode.remove();
+  // }
+  function inIframe() {
+      try {
+          return window.self !== window.top;
+      } catch (e) {
+          return true;
+      }
+  }
+
+  		var colors = [
+  			'#490A3D',
+  			'#BD1550',
+  			'#E97F02',
+  			'#F8CA00',
+  			'#8A9B0F',
+  			'#69D2E7',
+  			'#FA6900',
+  			'#16a085',
+  			'#27ae60',
+  			'#2c3e50',
+  			'#f39c12',
+  			'#e74c3c',
+  			'#9b59b6',
+  			'#FB6964',
+  			'#342224',
+  			'#472E32',
+  			'#77B1A9',
+  			'#73A857'
+  		];
+
+  var quotes = [
+      ["Your limitation—it's only your imagination."],
+      ["Push yourself, because no one else is going to do it for you."],
+      ["The harder you work for something, the greater you'll feel when you achieve it."],
+  	["As long as you keep going, you'll keep getting better. And as you get better, you gain more confidence. That alone is success."]
+  	["It is our choices, Harry, that show what we truly are, far more than our abilities.","J.K. Rowling, Harry Potter and the Chamber of Secrets"],
+  	["Great things never come from comfort zones."],
+  	["Trust yourself. You know more than you think you do."],
+  	["No one can make you feel inferior without your consent.","Eleanor Roosevelt, This is My Story"],
+  	["To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment."],
+  	["Consult not your fears but your hopes and your dreams. Think not about your frustrations, but about your unfulfilled potential. Concern yourself not with what you tried and failed in, but with what it is still possible for you to do."]
+  	];
+
+
+  var currentQuote = "";
+  var currentAuthor = "";
+  var randomquote = "";
+  var randomcolor = "";
+
+  function getQuote() {
+  	randomquote = Math.floor(Math.random() * quotes.length);
+  	randomcolor = Math.floor(Math.random() * colors.length);
+      currentQuote = quotes[randomquote][0];
+      currentAuthor = quotes[randomquote][1];
+  	if (inIframe()) {
+  		$('#tweet-quote').attr('href', 'https://twitter.com/intent/tweet?hashtags=quotes&related=aLamm&text=' + encodeURIComponent('"' + currentQuote + '" ' + currentAuthor));
+  	}
+
+  	$(document).ready(function () {
+  	    $('html body').animate({
+  	        backgroundColor: colors[randomcolor],
+  	        color: colors[randomcolor]
+  	    }, 500);
+  	    $('#newquote, .social-icons .fa-twitter').animate({ backgroundColor: colors[randomcolor] }, 500);
+  			$('blockquote footer').animate({ color: colors[randomcolor] }, 500);
+  	    $('blockquote').animate({ borderLeftColor: colors[randomcolor] }, 500);
+  	    $('#quotetext').animate({ opacity: 0 }, 500, function () {
+  	        $(this).animate({ opacity: 1 }, 500);
+  	        $(this).text(currentQuote);
+  	    });
+  	    $('#quotesource').animate({ opacity: 0 }, 500, function () {
+  	        $(this).animate({ opacity: 1 }, 500);
+  	        $(this).text(currentAuthor);
+  	    });
+      });
+  }
+
+  function openURL(url) {
+      window.open(url, 'Share', 'width=550, height=400, toolbar=0, scrollbars=1 ,location=0 ,statusbar=0,menubar=0, resizable=0');
+  }
+
+  getQuote();
+
+  $(document).ready(function () {
+      $('#newquote').on('click', getQuote);
+      $('#tweetquote').on('click', function () {
+          if (!inIframe()) {
+              openURL('https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' + encodeURIComponent('"' + currentQuote + '" ' + currentAuthor));
+          }
+      });
+  });
