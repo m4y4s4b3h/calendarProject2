@@ -6,16 +6,16 @@ submit.on('click', setStorage);
 
 function setStorage(){
   var input1 = $('.inp1').val();
-  var input2 = $('.inp2').val();
-  var input3 = $('.inp3').val();
-  var input4 = $('.inp4').val();
-  var input5 = $('.inp5').val();
+  // var input2 = $('.inp2').val();
+  // var input3 = $('.inp3').val();
+  // var input4 = $('.inp4').val();
+  // var input5 = $('.inp5').val();
 
   localStorage.setItem("input1", input1);
-  localStorage.setItem("input2", input2);
-  localStorage.setItem("input3", input3);
-  localStorage.setItem("input4", input4);
-  localStorage.setItem("input5", input5);
+  // localStorage.setItem("input2", input2);
+  // localStorage.setItem("input3", input3);
+  // localStorage.setItem("input4", input4);
+  // localStorage.setItem("input5", input5);
 
 
 }
@@ -23,16 +23,32 @@ submit.on('click', setTime);
 
 function setTime() {
   var time1 = $('.time1').val();
-  var time2 = $('.time2').val();
-  var time3 = $('.time3').val();
-  var time4 = $('.time4').val();
-  var time5 = $('.time5').val();
+  // var time2 = $('.time2').val();
+  // var time3 = $('.time3').val();
+  // var time4 = $('.time4').val();
+  // var time5 = $('.time5').val();
 
   localStorage.setItem("time1", time1);
-  localStorage.setItem("time2", time2);
-  localStorage.setItem("time3", time3);
-  localStorage.setItem("time4", time4);
-  localStorage.setItem("time5", time5);
+  // localStorage.setItem("time2", time2);
+  // localStorage.setItem("time3", time3);
+  // localStorage.setItem("time4", time4);
+  // localStorage.setItem("time5", time5);
+
+}
+submit.on("click", wantedTime);
+
+function wantedTime() {
+  var want1 = $('.want1').val();
+  // var want2 = $('.want2').val();
+  // var want3 = $('.want3').val();
+  // var want4 = $('.want4').val();
+  // var want5 = $('.want5').val();
+
+  localStorage.setItem("want1", want1);
+  // localStorage.setItem("want2", want2);
+  // localStorage.setItem("want3", want3);
+  // localStorage.setItem("want4", want4);
+  // localStorage.setItem("want5", want5);
 
 }
 
@@ -43,43 +59,58 @@ var timeInput = $('.timeInput');
 submit.on("click", showCalendar);
 // submit.on("click", inputSteps);
 function showCalendar() {
-  steps.css("visibility","hidden")
-  timeInput.css("visibility","hidden")
+
+  // var num = localStorage.getItem('time1');
+  // var hours = (num / 60);
+  // var rhours = Math.floor(hours);
+  // var minutes = (hours - rhours) * 60;
+  // var rminutes = Math.round(minutes);
+  // var finalNum= num + " minutes = " + rhours + " hour(s) and " + rminutes + " minute(s).";
+  // steps.css("visibility","hidden")
+  // timeInput.css("visibility","hidden")
 
   // event.target.parentNode.remove(input);
   cardContainer.append(`<article class = "appended">
-  <section class="day"><p> Today:</p> <br>
-  ${localStorage.getItem('input1')}: ${localStorage.getItem('time1')/5} minutes <br>
-  ${localStorage.getItem('input2')}: ${localStorage.getItem('time2')/5} minutes <br>
-  ${localStorage.getItem('input3')}: ${localStorage.getItem('time3')/5} minutes <br>
-  ${localStorage.getItem('input4')}: ${localStorage.getItem('time4')/5} minutes <br>
-  ${localStorage.getItem('input5')}: ${localStorage.getItem('time5')/5} minutes <br></section>
-  <section class="day"><p> Tomorrow: </p> <br>
-  ${localStorage.getItem('input1')}: ${localStorage.getItem('time1')/5} minutes <br>
-  ${localStorage.getItem('input2')}: ${localStorage.getItem('time2')/5} minutes <br>
-  ${localStorage.getItem('input3')}: ${localStorage.getItem('time3')/5} minutes <br>
-  ${localStorage.getItem('input4')}: ${localStorage.getItem('time4')/5} minutes <br>
-  ${localStorage.getItem('input5')}: ${localStorage.getItem('time5')/5} minutes <br></section>
-  <section class="day"><p> The next day: </p> <br>
-  ${localStorage.getItem('input1')}: ${localStorage.getItem('time1')/5} minutes <br>
-  ${localStorage.getItem('input2')}: ${localStorage.getItem('time2')/5} minutes <br>
-  ${localStorage.getItem('input3')}: ${localStorage.getItem('time3')/5} minutes <br>
-  ${localStorage.getItem('input4')}: ${localStorage.getItem('time4')/5} minutes <br>
-  ${localStorage.getItem('input5')}: ${localStorage.getItem('time5')/5} minutes <br></section>
-  <section class="day"><p> The next next day: </p> <br>
-  ${localStorage.getItem('input1')}: ${localStorage.getItem('time1')/5} minutes <br>
-  ${localStorage.getItem('input2')}: ${localStorage.getItem('time2')/5} minutes <br>
-  ${localStorage.getItem('input3')}: ${localStorage.getItem('time3')/5} minutes <br>
-  ${localStorage.getItem('input4')}: ${localStorage.getItem('time4')/5} minutes <br>
-  ${localStorage.getItem('input5')}: ${localStorage.getItem('time5')/5} minutes <br></section>
-  <section class="day"><p> The next next next day </p> <br>
-  ${localStorage.getItem('input1')}: ${localStorage.getItem('time1')/5} minutes <br>
-  ${localStorage.getItem('input2')}: ${localStorage.getItem('time2')/5} minutes <br>
-  ${localStorage.getItem('input3')}: ${localStorage.getItem('time3')/5} minutes <br>
-  ${localStorage.getItem('input4')}: ${localStorage.getItem('time4')/5} minutes <br>
-  ${localStorage.getItem('input5')}: ${localStorage.getItem('time5')/5} minutes <br></section>
+  <section class="day"><p></p>
+  You will finish your project "${localStorage.getItem('input1')}" in ${Math.ceil(localStorage.getItem('time1') / localStorage.getItem('want1'))} days.<br>
+
 
   </article>`)
+
+  // you will finish in ${localStorage.getItem('time2') / localStorage.getItem('want2')} ${rhours} hour(s) and ${rminutes} minutes(s)<br>
+  // You will finish in ${localStorage.getItem('time3') / localStorage.getItem('want3')} ${rhours} hour(s) and ${rminutes} minutes(s)<br>
+  // You will finish in ${localStorage.getItem('time4') / localStorage.getItem('want4')} ${rhours} hour(s) and ${rminutes} minutes(s)<br>
+  // You will finish in ${localStorage.getItem('time5') / localStorage.getItem('want5')} ${rhours} hour(s) and ${rminutes} minutes(s)<br>
+  // // ${localStorage.getItem('input2')}: ${localStorage.getItem('time2')} minutes <br>
+  // ${localStorage.getItem('input3')}: ${localStorage.getItem('time3')} minutes <br>
+  // ${localStorage.getItem('input4')}: ${localStorage.getItem('time4')} minutes <br>
+  // ${localStorage.getItem('input5')}: ${localStorage.getItem('time5')} minutes <br></section>
+  // // <section class="day"><p> Tomorrow: </p> <br>
+  // ${localStorage.getItem('input1')}: ${localStorage.getItem('time1')/5} minutes <br>
+  // ${localStorage.getItem('input2')}: ${localStorage.getItem('time2')/5} minutes <br>
+  // ${localStorage.getItem('input3')}: ${localStorage.getItem('time3')/5} minutes <br>
+  // ${localStorage.getItem('input4')}: ${localStorage.getItem('time4')/5} minutes <br>
+  // ${localStorage.getItem('input5')}: ${localStorage.getItem('time5')/5} minutes <br></section>
+  // <section class="day"><p> The next day: </p> <br>
+  // ${localStorage.getItem('input1')}: ${localStorage.getItem('time1')/5} minutes <br>
+  // ${localStorage.getItem('input2')}: ${localStorage.getItem('time2')/5} minutes <br>
+  // ${localStorage.getItem('input3')}: ${localStorage.getItem('time3')/5} minutes <br>
+  // ${localStorage.getItem('input4')}: ${localStorage.getItem('time4')/5} minutes <br>
+  // ${localStorage.getItem('input5')}: ${localStorage.getItem('time5')/5} minutes <br></section>
+  // <section class="day"><p> The next next day: </p> <br>
+  // ${localStorage.getItem('input1')}: ${localStorage.getItem('time1')/5} minutes <br>
+  // ${localStorage.getItem('input2')}: ${localStorage.getItem('time2')/5} minutes <br>
+  // ${localStorage.getItem('input3')}: ${localStorage.getItem('time3')/5} minutes <br>
+  // ${localStorage.getItem('input4')}: ${localStorage.getItem('time4')/5} minutes <br>
+  // ${localStorage.getItem('input5')}: ${localStorage.getItem('time5')/5} minutes <br></section>
+  // <section class="day"><p> The next next next day </p> <br>
+  // ${localStorage.getItem('input1')}: ${localStorage.getItem('time1')/5} minutes <br>
+  // ${localStorage.getItem('input2')}: ${localStorage.getItem('time2')/5} minutes <br>
+  // ${localStorage.getItem('input3')}: ${localStorage.getItem('time3')/5} minutes <br>
+  // ${localStorage.getItem('input4')}: ${localStorage.getItem('time4')/5} minutes <br>
+  // ${localStorage.getItem('input5')}: ${localStorage.getItem('time5')/5} minutes <br></section>
+
+
 }
 timeSubmit.on("click", timeConvert);
 
@@ -120,7 +151,6 @@ function timeConvert(timeHours) {
           return true;
       }
   }
-
   		var colors = [
   			'#490A3D',
   			'#BD1550',
@@ -164,8 +194,8 @@ function timeConvert(timeHours) {
   function getQuote() {
   	randomquote = Math.floor(Math.random() * quotes.length);
   	randomcolor = Math.floor(Math.random() * colors.length);
-      currentQuote = quotes[randomquote][0];
-      currentAuthor = quotes[randomquote][1];
+      currentQuote = quotes[randomquote];
+      // currentAuthor = quotes[randomquote];
   	if (inIframe()) {
   		$('#tweet-quote').attr('href', 'https://twitter.com/intent/tweet?hashtags=quotes&related=aLamm&text=' + encodeURIComponent('"' + currentQuote + '" ' + currentAuthor));
   	}

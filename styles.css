@@ -3,7 +3,7 @@ ul {list-style-type: none;}
 /* Month header */
 
 * {
-  background-color: white;
+  background-color: #DAFFF4;
   font-family: 'Quicksand', sans-serif;
 }
 input {
@@ -33,7 +33,6 @@ h6 {
   font-size: 15px;
 }
 
-
 .timeDiv {
   padding: 5px;
   background-color: #A8DBFF;
@@ -44,10 +43,14 @@ h6 {
 }
 .timeDiv {
   border: solid 2px;
+  border-color: #77B9EB;
   display: inline-block;
-padding: 20px;
-width: 300px;
-height: 100px;
+  padding: 20px;
+  width: 300px;
+  height: 100px;
+}
+.project {
+  font-size: 20px;
 }
 
 .submit {
@@ -65,22 +68,41 @@ height: 100px;
 }
 
 .min {
-  margin-left: 380px;
+  margin-left: 210px;
   font-size: 20px;
+  max-width: 150px;
+
 }
 .whatSteps {
   display: flex;
   flex-wrap: nowrap;
   font-size: 20px;
+  margin-left: 20px;
+}
+#questions{
+  display: flex;
+  flex-direction: row;
+}
+
+.want {
+  margin-left: 65px;
+  display: flex;
+  flex-wrap: nowrap;
+  font-size: 20px;
+  max-width:500px;
 }
  .appended {
    display: flex;
    justify-content: space-around;
 
+
  }
  .inp1 {
    color: #617687
-   
+   height: 100px;
+   font-size: 28px;
+   margin-left: 20px;
+
  }
  .inp2 {
    color: #617687
@@ -99,33 +121,60 @@ height: 100px;
  }
 
  .day{
-   border: solid 2px;
+   font-size: 40px;
+   color: #77B9EB;
+   border: dotted 2px;
+
  }
 
 .time1 {
-  margin-left: 300px;
+  margin-left: 100px;
   margin-bottom: 30px;
+  width: 100px;
+  height: 35px;
+  font-size: 28px;
 
 }
 .time2 {
-  margin-left: 300px;
+  margin-left: 100px;
   margin-bottom: 30px;
+  width: 100px;
 
 }
 .time3 {
-  margin-left: 300px;
+  margin-left: 100px;
   margin-bottom: 30px;
+  width: 100px;
 
 }
 .time4 {
-  margin-left: 300px;
+  margin-left: 100px;
   margin-bottom: 30px;
+  width: 100px;
 
 }
 .time5 {
-  margin-left: 300px;
+  margin-left: 100px;
   margin-bottom: 30px;
+  width: 100px;
 
+}
+.want1 {
+  margin-left: 100px;
+  height: 35px;
+  font-size: 28px;
+}
+.want2 {
+  margin-left: 100px;
+}
+.want3 {
+  margin-left: 100px;
+}
+.want4 {
+  margin-left: 100px;
+}
+.want5 {
+  margin-left: 100px;
 }
 
 
@@ -162,6 +211,7 @@ blockquote footer {
 
 .container {
 	max-height:800px;
+  max-width: 500px;
 	/* margin: 10% auto auto auto; */
 }
 .quotebox {
